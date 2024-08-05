@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "225479992557",
+    "project_id": "fluttermidhackthon",
+    "storage_bucket": "fluttermidhackthon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:225479992557:android:b88ac0bdd54b906b9458e4",
+        "android_client_info": {
+          "package_name": "com.example.fluttermidhackathon"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZu3CN6g_IacD1456S5lvAv_dUKMtv-Hs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
