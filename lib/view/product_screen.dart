@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttermidhackathon/components.dart';
 import 'package:fluttermidhackathon/controllers/controller.dart';
-import 'package:fluttermidhackathon/models/category_models.dart';
-import 'package:fluttermidhackathon/models/item_model.dart';
-import 'package:fluttermidhackathon/notifiyr.dart/category_change_notifier.dart';
 import 'package:fluttermidhackathon/widgets/item_box.dart';
 import 'package:provider/provider.dart';
 

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fluttermidhackathon/components.dart';
 import 'package:fluttermidhackathon/controllers/controller.dart';
 import 'package:fluttermidhackathon/utils/bottem_navigation.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 class FavoriteScreen extends StatelessWidget {

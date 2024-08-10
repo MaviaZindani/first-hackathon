@@ -1,6 +1,3 @@
-import 'package:fluttermidhackathon/view/chackout_screen.dart';
-import 'package:fluttermidhackathon/view/favorite_screen.dart';
-import 'package:fluttermidhackathon/view/product_screen.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -12,9 +9,11 @@ import 'package:fluttermidhackathon/view/intro_screen.dart';
 import 'package:fluttermidhackathon/view/login_Screen.dart';
 import 'package:fluttermidhackathon/view/signup_screen.dart';
 import 'package:fluttermidhackathon/view/splash_screen.dart';
+import 'package:fluttermidhackathon/view/product_screen.dart';
+import 'package:fluttermidhackathon/view/chackout_screen.dart';
+import 'package:fluttermidhackathon/view/favorite_screen.dart';
 import 'package:fluttermidhackathon/view/category_screen.dart';
 import 'package:fluttermidhackathon/controllers/controller.dart';
-import 'package:fluttermidhackathon/notifiyr.dart/category_change_notifier.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,9 +50,6 @@ class MyApp extends StatelessWidget {
           RoutesName.categoryScreen: (context)=> const CategoryScreen(),
         },
         navigatorKey: Navigation.navigationkey,
-        onGenerateRoute: (settings) {
-          
-        },
       ),
     );
       });

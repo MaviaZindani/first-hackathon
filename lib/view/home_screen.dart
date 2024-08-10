@@ -1,16 +1,12 @@
-import 'dart:js_interop';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttermidhackathon/components.dart';
 import 'package:provider/provider.dart';
 import 'package:fluttermidhackathon/controllers/controller.dart';
 import 'package:fluttermidhackathon/models/category_models.dart';
 import 'package:fluttermidhackathon/models/item_model.dart';
-import 'package:fluttermidhackathon/notifiyr.dart/category_change_notifier.dart';
 import 'package:fluttermidhackathon/utils/bottem_navigation.dart';
 import 'package:fluttermidhackathon/utils/routes_name.dart';
-import 'package:fluttermidhackathon/view/product_screen.dart';
 import 'package:fluttermidhackathon/widgets/item_box.dart';
 import 'package:fluttermidhackathon/widgets/offer_container.dart';
 

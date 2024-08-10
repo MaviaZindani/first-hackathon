@@ -1,12 +1,6 @@
-import 'dart:math';
-import 'dart:ui';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:fluttermidhackathon/components.dart';
-import 'package:fluttermidhackathon/utils/bottem_navigation.dart';
-import 'package:fluttermidhackathon/utils/navigation.dart';
 import 'package:fluttermidhackathon/utils/routes_name.dart';
 
 class LoginScreen extends StatefulWidget {

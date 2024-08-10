@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:fluttermidhackathon/components.dart';
 import 'package:fluttermidhackathon/controllers/controller.dart';
 import 'package:fluttermidhackathon/models/item_model.dart';
-import 'package:fluttermidhackathon/utils/bottem_navigation.dart';
-import 'package:fluttermidhackathon/view/chackout_screen.dart';
 import 'package:provider/provider.dart';
 
 class DetailsScreen extends StatelessWidget {
