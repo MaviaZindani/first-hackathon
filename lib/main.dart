@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:fluttermidhackathon/notifiyr.dart/category_change_notifier.dart';
-import 'package:fluttermidhackathon/view/category_screen.dart';
-import 'package:fluttermidhackathon/view/details_screen.dart';
-import 'package:provider/provider.dart';
+import 'package:fluttermidhackathon/view/chackout_screen.dart';
+import 'package:fluttermidhackathon/view/favorite_screen.dart';
+import 'package:fluttermidhackathon/view/product_screen.dart';
 import 'firebase_options.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fluttermidhackathon/utils/navigation.dart';
 import 'package:fluttermidhackathon/utils/routes_name.dart';
@@ -12,7 +12,9 @@ import 'package:fluttermidhackathon/view/intro_screen.dart';
 import 'package:fluttermidhackathon/view/login_Screen.dart';
 import 'package:fluttermidhackathon/view/signup_screen.dart';
 import 'package:fluttermidhackathon/view/splash_screen.dart';
+import 'package:fluttermidhackathon/view/category_screen.dart';
 import 'package:fluttermidhackathon/controllers/controller.dart';
+import 'package:fluttermidhackathon/notifiyr.dart/category_change_notifier.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +30,6 @@ class MyApp extends StatelessWidget {
         return MultiProvider(
       providers: [
         ChangeNotifierProvider(create:(_) => Controller()),
-        ChangeNotifierProvider(create: (_) => CategoryChangeNotifier())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -37,15 +38,22 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        initialRoute: RoutesName.splashScreen,
+        initialRoute: RoutesName.homeScreen,
         routes: {
+          RoutesName.chackoutScreen: (context) => const ChackoutScreen(),
           RoutesName.homeScreen: (context)=> const HomeScreen(),
-          RoutesName.categoryScreen: (context)=> const CategoryScreen(),
-          RoutesName.splashScreen: (context)=> const SplashScreen(),
+          RoutesName.productScreen: (context)=> const ProductScreen(),
+          RoutesName.favoriteScreen: (context)=> const FavoriteScreen(),
           RoutesName.introScreen: (context)=> const IntroScreen(),
           RoutesName.loginScreen: (context)=> const LoginScreen(),
+          RoutesName.splashScreen: (context)=> const SplashScreen(),
           RoutesName.signupScreen: (context)=> const SignupScreen(),
-        },navigatorKey: Navigation.navigationkey,
+          RoutesName.categoryScreen: (context)=> const CategoryScreen(),
+        },
+        navigatorKey: Navigation.navigationkey,
+        onGenerateRoute: (settings) {
+          
+        },
       ),
     );
       });

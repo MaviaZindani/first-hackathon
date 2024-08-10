@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fluttermidhackathon/components.dart';
 import 'package:fluttermidhackathon/utils/routes_name.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BottemNavigation extends StatefulWidget {
-  BottemNavigation({super.key, required this.selectIndex});
+ const BottemNavigation({super.key, required this.selectIndex});
   
   final int selectIndex;
 
@@ -27,12 +28,12 @@ class _BottemNavigationState extends State<BottemNavigation> {
                 Navigator.pushNamed(context, openScreen(context, 1));
               },
               child: Padding(
-                padding: EdgeInsets.all(5.0),
+                padding: const EdgeInsets.all(5.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(Icons.home,color: getSelectedColor(1),),
-                    SizedBox(
+                    const SizedBox(
                       height: 1,
                     ),
                     Text(
@@ -53,12 +54,12 @@ class _BottemNavigationState extends State<BottemNavigation> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(Icons.class_,color: getSelectedColor(2)),
-                    SizedBox(
+                    Icon(FontAwesomeIcons.heart,color: getSelectedColor(2)),
+                    const SizedBox(
                       height: 1,
                     ),
                     Text(
-                      'My Classes',
+                      'Favorite Items',
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13,color: getSelectedColor(2)),
                     ),
                   ],
@@ -75,12 +76,12 @@ class _BottemNavigationState extends State<BottemNavigation> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(Icons.list,color: getSelectedColor(3)),
-                    SizedBox(
+                    Icon(FontAwesomeIcons.cartShopping,color: getSelectedColor(3)),
+                    const SizedBox(
                       height: 1,
                     ),
                     Text(
-                      'Wish List',
+                      'Cart',
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13,color: getSelectedColor(3)),
                     ),
                   ],
@@ -98,7 +99,7 @@ class _BottemNavigationState extends State<BottemNavigation> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(Icons.person,color: getSelectedColor(4)),
-                    SizedBox(
+                    const SizedBox(
                       height: 1,
                     ),
                     Text('Account',
@@ -125,10 +126,10 @@ class _BottemNavigationState extends State<BottemNavigation> {
         routeName = RoutesName.homeScreen;
         break;
       case 2:
-        routeName = RoutesName.detailScreen;
+        routeName = RoutesName.favoriteScreen;
         break;
       case 3:
-        routeName = RoutesName.categoryScreen;
+        routeName = RoutesName.chackoutScreen;
       case 4:
         routeName = RoutesName.loginScreen;
       default:

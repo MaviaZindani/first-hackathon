@@ -15,8 +15,9 @@ class ItemModel {
   final CategoryModels Category;
   final bool isSelected; 
   final ItemColorModel colors;
+  int numberOfProduct;
 
 
-  ItemModel(this.title, this.id, this.thumbnaiul, this.discription, this.reviews, this.rate, this.subtitel, this.price, this.Category, this.isSelected,this.isFavorite, this.colors);
+  ItemModel(this.title, this.id, this.thumbnaiul, this.discription, this.reviews, this.rate, this.subtitel, this.price, this.Category, this.isSelected,this.isFavorite, this.colors,this.numberOfProduct);
 
 }

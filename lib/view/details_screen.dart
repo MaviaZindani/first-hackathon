@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttermidhackathon/components.dart';
+import 'package:fluttermidhackathon/controllers/controller.dart';
 import 'package:fluttermidhackathon/models/item_model.dart';
 import 'package:fluttermidhackathon/utils/bottem_navigation.dart';
 import 'package:fluttermidhackathon/view/chackout_screen.dart';
@@ -12,11 +13,20 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<Controller>(context,listen: true);
     return Scaffold(
       backgroundColor: e_themeColor,
       appBar: AppBar(
-        actions: [IconButton(onPressed: (){}, icon: Icon(Icons.favorite_border,color: Colors.red,))],
-        title: Text('Product Details'),
+        actions: [
+          IconButton(onPressed: (){
+            provider.addFavorite(itemModel);
+          },
+        icon: Icon(
+          itemModel.isFavorite == false?
+          Icons.favorite_border:
+          Icons.favorite,
+        color: Colors.red,))],
+        title: const Text('Product Details'),
         backgroundColor: Colors.transparent,
         centerTitle: true,
       ),
@@ -26,12 +36,10 @@ class DetailsScreen extends StatelessWidget {
         SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                child: Center(
-                  child: CircleAvatar(
-                    radius: 90,
-                    backgroundImage: AssetImage(itemModel.thumbnaiul),
-                  ),
+              Center(
+                child: CircleAvatar(
+                  radius: 90,
+                  backgroundImage: AssetImage(itemModel.thumbnaiul),
                 ),
               ),
               Padding(
@@ -42,7 +50,7 @@ class DetailsScreen extends StatelessWidget {
                   children: [
                     Text(
                       itemModel.title,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: e_blacktextColor,
                         fontSize: 26,
                         fontWeight: FontWeight.w600
@@ -53,7 +61,7 @@ class DetailsScreen extends StatelessWidget {
                     ),
                     Text(
                       itemModel.subtitel,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: e_blacktextColor,
                         fontSize: 18,
                         fontWeight: FontWeight.w400
@@ -104,7 +112,7 @@ class DetailsScreen extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    Text(
+                    const Text(
                       'Colors',
                       style: TextStyle(
                         color: e_blacktextColor,
@@ -198,7 +206,7 @@ class DetailsScreen extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    Text(
+                    const Text(
                       'About',
                       style: TextStyle(
                         color: e_blacktextColor,
@@ -210,7 +218,7 @@ class DetailsScreen extends StatelessWidget {
                     ),
                     Text(
                       itemModel.discription,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: e_greytextColor,
                         fontSize: 16,
                       ),
@@ -222,9 +230,12 @@ class DetailsScreen extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 12),
           child: InkWell(
             onTap: (){
+              provider.addToChackout(itemModel);
+              provider.subTotalFunc(itemModel);
+              provider.totalFunc();
             },
             child: Container(
               height: 45,
@@ -233,7 +244,7 @@ class DetailsScreen extends StatelessWidget {
                 color: e_purpelColor,
                 borderRadius: BorderRadius.circular(18),
               ),
-              child: Center(
+              child: const Center(
                   child: Text(
                 'Add To Cart',
                 style: TextStyle(
@@ -245,7 +256,6 @@ class DetailsScreen extends StatelessWidget {
           ),
         ),
       ]),
-      bottomNavigationBar: BottemNavigation(selectIndex: 2)
       );
   }
 }

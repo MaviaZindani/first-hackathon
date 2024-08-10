@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(const Duration(seconds: 5), ()=>Navigator.pushNamed(context, RoutesName.homeScreen));
+    Timer(const Duration(seconds: 5), ()=>Navigator.pushReplacementNamed(context, RoutesName.loginScreen));
   }
   @override
   Widget build(BuildContext context) {
