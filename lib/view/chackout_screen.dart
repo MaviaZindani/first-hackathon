@@ -3,6 +3,7 @@ import 'package:fluttermidhackathon/components.dart';
 import 'package:fluttermidhackathon/controllers/controller.dart';
 import 'package:fluttermidhackathon/models/item_model.dart';
 import 'package:fluttermidhackathon/utils/bottem_navigation.dart';
+import 'package:fluttermidhackathon/utils/show_notification.dart';
 import 'package:provider/provider.dart';
 
 class ChackoutScreen extends StatefulWidget {
@@ -132,21 +133,27 @@ class _ChackoutScreenState extends State<ChackoutScreen> {
               ),
                Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Container(
-                  height: 50,
-                  width: double.maxFinite,
-                  decoration: BoxDecoration(
-                    color: e_purpelColor,
-                    borderRadius: BorderRadius.circular(18),
-                  ),
-                  child: const Center(
-                      child: Text(
-                    'Purchase',
-                    style: TextStyle(
-                      color: e_whitetextColor,
-                      fontSize: 16,
+                child: GestureDetector(
+                  onTap: (){
+                    provider.clearList();
+                    ShowNotification().showMessage('Item Purchase', context);
+                  },
+                  child: Container(
+                    height: 50,
+                    width: double.maxFinite,
+                    decoration: BoxDecoration(
+                      color: e_purpelColor,
+                      borderRadius: BorderRadius.circular(18),
                     ),
-                  )),
+                    child: const Center(
+                        child: Text(
+                      'Purchase',
+                      style: TextStyle(
+                        color: e_whitetextColor,
+                        fontSize: 16,
+                      ),
+                    )),
+                  ),
                 ),
                        ),
              ],
@@ -164,7 +171,7 @@ class _ChackoutScreenState extends State<ChackoutScreen> {
       child: Card(
         elevation: 1,
         child: Container(
-          height: 110,
+          height: 125,
           width: double.maxFinite,
           decoration: BoxDecoration(
             color: e_whiteItemBoxColor,
@@ -210,7 +217,7 @@ class _ChackoutScreenState extends State<ChackoutScreen> {
                   children: [
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisSize: MainAxisSize.max,
                   children: [
                     IconButton(
                      onPressed: (){

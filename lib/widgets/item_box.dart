@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttermidhackathon/components.dart';
 import 'package:fluttermidhackathon/controllers/controller.dart';
 import 'package:fluttermidhackathon/models/item_model.dart';
+import 'package:fluttermidhackathon/utils/show_notification.dart';
 import 'package:fluttermidhackathon/view/details_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -80,9 +81,12 @@ class ItemBox extends StatelessWidget {
                       onTap: () {
                         if (itemModel.isFavorite == false) {
                           provider.addFavorite(itemModel);
+                          ShowNotification().showMessage('This product add in your Favorite list', context);
                         }else{
                           provider.removeFromFavorite(itemModel);
+                          ShowNotification().showMessage('This product remove from your Favorite list', context);
                         }
+                        
                       },
                       child: Icon(
                       itemModel.isFavorite == true?

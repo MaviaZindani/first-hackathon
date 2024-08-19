@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttermidhackathon/components.dart';
@@ -51,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottemNavigation(selectIndex: 1),
+      bottomNavigationBar: const BottemNavigation(selectIndex: 1),
     );
   }
 
@@ -244,6 +246,13 @@ class _HomeScreenState extends State<HomeScreen> {
             future: getdata(),
             builder:
             (context, AsyncSnapshot snapshot){
+              if (snapshot.connectionState == ConnectionState.waiting){
+                return const CircularProgressIndicator();
+              }else if (snapshot.connectionState == ConnectionState.none) {
+                return const Center(
+                  child: Text('No data'),
+                );
+              }else{
              return ListView.builder(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
@@ -289,6 +298,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               },
             );
+              }
             }
           ),
         ),

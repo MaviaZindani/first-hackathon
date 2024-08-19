@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttermidhackathon/components.dart';
 import 'package:fluttermidhackathon/controllers/controller.dart';
 import 'package:fluttermidhackathon/utils/bottem_navigation.dart';
+import 'package:fluttermidhackathon/utils/show_notification.dart';
 import 'package:provider/provider.dart';
 
 class FavoriteScreen extends StatelessWidget {
@@ -59,6 +60,7 @@ class FavoriteScreen extends StatelessWidget {
                   trailing: IconButton(
                     onPressed: (){
                       provider.removeFromFavorite(item);
+                      ShowNotification().showMessage('This product remove from your Favorite list', context);
                     }, 
                     icon: const Icon(Icons.delete_outline,color: Colors.red,)),
                 );},

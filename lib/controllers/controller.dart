@@ -145,6 +145,11 @@ class Controller with ChangeNotifier {
     }
   }
 
+  void clearList(){
+    selectedItems.clear();
+    notifyListeners();
+  }
+
   List buildgetitemlist(
     BuildContext context,
   ) {
