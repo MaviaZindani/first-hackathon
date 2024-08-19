@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final provider = Provider.of<Controller>(context,listen: true);
     final data = provider.dataList;
-    var firebase = FirebaseFirestore.instance.collection('dataList').snapshots();
+    FirebaseFirestore firebase = FirebaseFirestore.instance;
     return Scaffold(
       backgroundColor: e_themeColor,
       appBar: AppBar(
@@ -208,7 +208,10 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildListProduct(ItemModel itemModel, Controller provider,var firebase) {
+  Widget _buildListProduct(ItemModel itemModel, Controller provider,FirebaseFirestore firestore) {
+    Future getdata(){
+    return firestore.collection('dataList').get();
+    }
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -237,19 +240,20 @@ class _HomeScreenState extends State<HomeScreen> {
         const SizedBox(height: 10),
         SizedBox(
           height: double.maxFinite,
-          child: FutureBuilder<DocumentSnapshot>(
-            future: firebase.doc().get(),
+          child: FutureBuilder(
+            future: getdata(),
             builder:
-            (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot){
+            (context, AsyncSnapshot snapshot){
              return ListView.builder(
-              itemCount: provider.dataList.length,
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: snapshot.data.docs.length,
               itemBuilder: (context, index) {
                 final item = provider.dataList[index];
-                Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
                 return ListTile(
                   leading: Image.asset(item.thumbnaiul),
                   title: Text(
-                    data['titel'],
+                    snapshot.data.docs[index]['titel'],
                     style: const TextStyle(
                         color: e_blacktextColor,
                         fontSize: 18,
@@ -271,7 +275,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(width: 10,),
+                  const SizedBox(width: 10,),
                       Text(
                         '\$${item.price}',
                         style: const TextStyle(
@@ -291,5 +295,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
+
+
 
 }

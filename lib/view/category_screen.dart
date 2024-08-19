@@ -11,7 +11,7 @@ class CategoryScreen extends StatelessWidget {
   const CategoryScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     var provider = Provider.of<Controller>(context, listen: false);
     List<ItemModel> data = provider.dataList;
     return Scaffold(

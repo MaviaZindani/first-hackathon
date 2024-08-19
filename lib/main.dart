@@ -5,7 +5,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:fluttermidhackathon/utils/navigation.dart';
 import 'package:fluttermidhackathon/utils/routes_name.dart';
 import 'package:fluttermidhackathon/view/home_screen.dart';
-import 'package:fluttermidhackathon/view/intro_screen.dart';
 import 'package:fluttermidhackathon/view/login_Screen.dart';
 import 'package:fluttermidhackathon/view/signup_screen.dart';
 import 'package:fluttermidhackathon/view/splash_screen.dart';
@@ -37,13 +36,12 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        initialRoute: RoutesName.homeScreen,
+        initialRoute: RoutesName.splashScreen,
         routes: {
           RoutesName.chackoutScreen: (context) => const ChackoutScreen(),
           RoutesName.homeScreen: (context)=> const HomeScreen(),
           RoutesName.productScreen: (context)=> const ProductScreen(),
           RoutesName.favoriteScreen: (context)=> const FavoriteScreen(),
-          RoutesName.introScreen: (context)=> const IntroScreen(),
           RoutesName.loginScreen: (context)=> const LoginScreen(),
           RoutesName.splashScreen: (context)=> const SplashScreen(),
           RoutesName.signupScreen: (context)=> const SignupScreen(),

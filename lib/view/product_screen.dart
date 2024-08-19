@@ -27,11 +27,8 @@ class ProductScreen extends StatelessWidget {
           ],
         )],
       ),
-      body: SizedBox(
-        height: 800,
-        width: double.maxFinite,
+      body: Expanded(
         child: GridView.builder(
-          padding: EdgeInsets.all(10),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           itemCount: provider.buildgetitemlist(context).length,
           itemBuilder: (contex,index) {
